@@ -20,12 +20,12 @@ Le projet inclut :
 ---
 
 ## 📂 Structure du projet
-Chatbot/
-├── chatbotFront/ # Application Angular (frontend)
-├── chatbot # Backend Spring Boot
-└── chatbotNLP/ # Service Flask pour NLP
+```Chatbot/
+├── chatbotFront/Application Angular (frontend)
+├── chatbot /Backend Spring Boot
+└── chatbotNLP/Service Flask pour NLP
 
-
+```
 ---
 
 ## ⚙️ Installation et exécution
@@ -34,22 +34,25 @@ Chatbot/
 ```bash
 git clone https://github.com/asmasellami/Chatbot.git
 cd Chatbot
----
+```
+
 ### 2️⃣ Frontend (Angular)
 ```bash
 cd chatbotFront
 npm install
 ng serve
 Accéder à : http://localhost:4200
----
-###3️⃣ Backend (Spring Boot)
+```
+
+### 3️⃣ Backend (Spring Boot)
 ```bash
 cd ../chatbotBack
 mvn spring-boot:run
----
-###4️⃣ Service NLP (Flask)
+```
+
+### 4️⃣ Service NLP (Flask)
 ```bash
 cd ../chatbotNLP
 pip install -r requirements.txt
 python app.py
-
+```
