@@ -1,0 +1,17 @@
+.bg-dark-blue {
+  background-color: #1c1c3c;
+}
+
+.btn-orange {
+  background-color: #f7941d;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn-orange:hover {
+  background-color: #e47f00;
+  color: white;
+}
+.text-orange {
+  color: #f7941d;
+}

@@ -1,0 +1,122 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f7fa;
+  margin: 0;
+  padding: 1rem 1rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.user-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.user-card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card-header h2 {
+  margin: 0 0 1.5rem 0;
+  font-weight: 700;
+  color: #2c3e50;
+  text-align: center;
+  font-size: 26px;
+}
+
+.form-group {
+  margin-bottom: 1.3rem;
+}
+
+label {
+  display: block;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: #34495e;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1.8px solid #ced4da;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 6px #007bffaa;
+}
+
+.btn {
+  padding: 0.75rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.btn-primary {
+  background-color: #003a73;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.btn:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  body {
+    padding: 1rem;
+  }
+  .user-card {
+    padding: 1.5rem 1rem;
+  }
+}
+
+.toast-success {
+  background-color: #28a745 !important;
+  color: #fff !important;
+}
+
+.toast-error {
+  background-color: #dc3545 !important;
+  color: #fff !important;
+}
+
+.toast-info {
+  background-color: #17a2b8 !important;
+  color: #fff !important;
+}
+
+.toast-warning {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+}
+
+.ngx-toastr {
+  font-weight: 500;
+  font-family: "Segoe UI", sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}

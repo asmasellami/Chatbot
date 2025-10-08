@@ -1,0 +1,31 @@
+<app-menu>
+  <div class="layout d-flex">
+
+    <div class="container mt-4">
+      <h3>Historique de mes conversations</h3>
+
+      <table class="table table-bordered table-hover mt-3" *ngIf="historique.length > 0">
+        <thead class="table-info">
+          <tr>
+            <th>Date</th>
+            <th>Question</th>
+            <th>Réponse</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let historiques of historique">
+            <td>{{ historiques.date | date:'dd/MM/YYYY' }}</td>
+            <td>{{ historiques.pattern }}</td>
+            <td [innerHTML]="historiqueSafe(historiques.reponse)"></td>
+
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="historique.length === 0" class="text-muted">
+        Aucun historique pour le moment.
+      </div>
+    </div>
+  </div>
+
+</app-menu>

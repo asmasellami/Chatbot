@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-dark-blue">
+  <div class="card p-4 shadow rounded-4" style="width: 100%; max-width: 400px;">
+    <div class="text-center mb-4">
+      <img src="assets/images/onetech_Logo.png" alt="Logo OneTech" height="50">
+
+    </div>
+    <h4 class="text-center text-dark mb-3">Connexion</h4>
+
+    <div class="alert alert-danger" *ngIf="err==1">
+      <strong>login ou mot de passe erronés..</strong>
+    </div>
+
+    <form>
+      <div class="mb-3">
+        <label for="username" class="form-label text-dark">Username</label>
+        <input type="text" [(ngModel)]="user.username" name="username" class="form-control rounded-pill" id="username"
+          placeholder="Entrez votre nom d'utilisateur">
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label text-dark">Mot de passe</label>
+        <input type="password" [(ngModel)]="user.password" name="password" class="form-control rounded-pill"
+          id="password" placeholder="Entrez votre mot de passe">
+      </div>
+
+      <button type="submit" (click)="onLoggedin()" class="btn btn-orange w-100 rounded-pill mt-3">Se connecter</button>
+    </form>
+
+    <p class="text-center mt-3">
+      Vous n'avez pas de compte ?
+      <a routerLink="/register" class="text-orange fw-bold">Créer un compte</a>
+    </p>
+
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<app-menu>
+
+  <div class="p-4">
+
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-3">
+          <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+              <h6 class="card-title text-muted">Total des fichiers</h6>
+              <h3 class="fw-bold">{{ totalFiles }}</h3>
+            </div>
+            <div class="icon-circle text-white d-flex align-items-center justify-content-center"
+              style="width: 50px; height: 50px;">
+              <i class="bx bxs-folder"></i>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <input type="file" class="form-control" id="uploadFile" (change)="onFileSelected($event)">
+      <button style=" background-color: #004b93;" class="btn btn-primary" type="button" (click)="ajouterfichier()">
+        <i class="fas fa-cloud-upload-alt me-1"></i> Ajouter
+      </button>
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-3">
+      <div class="card-header bg-white d-flex justify-content-between align-items-center" style="gap: 1rem;">
+        <h4 class="mb-0 flex-grow-1">Liste des fichiers</h4>
+      </div>
+      <div class="card-body table-responsive">
+        <table class="table align-middle table-hover users-table">
+          <thead class="table-light">
+            <tr>
+              <th>Nom</th>
+              <th>Date</th>
+              <th style="text-align: center;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let fichier of fichiers">
+              <td>{{ fichier.fileName }}</td>
+              <td>{{ fichier.date | date:'dd/MM/yyyy' }}</td>
+              <td class="text-center action-buttons">
+                <button style="background-color: #004b93;" type="button" (click)="consulterFichier(fichier.id)"
+                  class="btn btn-view" aria-label="Voir">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="1.5" width="20" height="20">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </button>
+                <button style="background-color: #ff6b35;" type="button" (click)="modifierFichier(fichier.id)"
+                  class="btn btn-edit" aria-label="Modifier">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="1.5" width="20" height="20">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M16.862 4.487a2.116 2.116 0 113 3l-9.522 9.522a2 2 0 01-1.003.527l-4.707.941a.25.25 0 01-.3-.3l.94-4.706a2 2 0 01.528-1.003L16.86 4.488z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 7.5l-5-5" />
+                  </svg>
+                </button>
+                <button style="background-color: #dc3545;" type="button" (click)="supprimerfichier(fichier.id)"
+                  class="btn btn-delete" aria-label="Supprimer">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="1.5" width="20" height="20">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</app-menu>

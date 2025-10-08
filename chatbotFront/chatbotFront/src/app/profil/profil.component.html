@@ -1,0 +1,58 @@
+<app-menu>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card user-card">
+          <div class="card-header">
+            <h2>Modifier le profil</h2>
+            <p class="text-muted text-center">Mettez à jour vos informations personnelles.</p>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="updateUser()" class="user-form" novalidate #profileForm="ngForm"
+              (ngModelChange)="checkForChanges()">
+              <input type="hidden" [(ngModel)]="CurrentUser.user_id" name="userId" />
+
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" [(ngModel)]="CurrentUser.username" name="username"
+                  required #username="ngModel" (ngModelChange)="checkForChanges()"
+                  [ngClass]="{'is-invalid': username.invalid && (username.dirty || username.touched)}" />
+                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="invalid-feedback">
+                  Le nom d'utilisateur est requis.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" [(ngModel)]="CurrentUser.email" name="email"
+                  required #email="ngModel" (ngModelChange)="checkForChanges()"
+                  [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}" />
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback">
+                  Veuillez entrer un email valide.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" class="form-control" id="password" [(ngModel)]="CurrentUser.password"
+                  name="password" required #password="ngModel" (ngModelChange)="checkForChanges()"
+                  [ngClass]="{'is-invalid': password.invalid && (password.dirty || password.touched)}" />
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid-feedback">
+                  Le mot de passe est requis.
+                </div>
+              </div>
+
+              <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary" [disabled]="!hasChanges || profileForm.invalid">
+                  Enregistrer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</app-menu>

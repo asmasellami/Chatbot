@@ -1,0 +1,37 @@
+<app-menu>
+  <div class="layout d-flex">
+    <div class="chat-wrapper">
+      <div class="chat-header" style="background-color: #003a73;">
+        Chatbot OneTech
+      </div>
+
+      <div *ngIf="currentDate" class="chat-date text-center py-2"
+        style="background-color: #f1f5f9; color: #003a73; font-weight: 300;">
+        {{ currentDate }}
+      </div>
+      <div class="chat-body" id="chatBody">
+
+        <div *ngFor="let msg of messages" class="message" [ngClass]="msg.sender">
+          <div class="bubble" [innerHTML]="msg.text"></div>
+        </div>
+
+
+        <div *ngIf="isTyping" class="message bot">
+          <div class="bubble typing">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="chat-footer" *ngIf="isToday">
+        <input [(ngModel)]="userInput" placeholder="Écris ta question ici..." class="chat-input" />
+        <button (click)="sendMessage()" [disabled]="!userInput.trim()" class="chat-send">
+          Envoyer
+        </button>
+      </div>
+    </div>
+  </div>
+
+</app-menu>

@@ -1,0 +1,77 @@
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-dark-blue">
+  <div class="card p-4 shadow rounded-4" style="width: 100%; max-width: 400px;">
+    <div class="text-center mb-4">
+      <img src="assets/images/onetech_Logo.png" alt="Logo OneTech" height="50">
+    </div>
+    <h4 class="text-center text-dark mb-3">Créer un compte</h4>
+
+    <form [formGroup]="myForm">
+
+
+      <div class="mb-3">
+        <label for="username" class="form-label text-dark">Nom Utilisateur</label>
+        <input type="text" id="username" class="form-control rounded-pill" formControlName="username"
+          [(ngModel)]="user.username" name="username" placeholder="Nom d'utilisateur">
+        <div *ngIf="myForm.controls['username'].hasError('required') && myForm.controls['username'].touched"
+          class="text-danger">
+          Nom Utilisateur est obligatoire
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label text-dark">Email</label>
+        <input type="email" id="email" class="form-control rounded-pill" formControlName="email"
+          [(ngModel)]="user.email" name="email" placeholder="Entrez votre email">
+        <div *ngIf="myForm.controls['email'].hasError('required') && myForm.controls['email'].touched"
+          class="text-danger">
+          Email est obligatoire
+        </div>
+        <div *ngIf="myForm.controls['email'].hasError('email') && myForm.controls['email'].touched" class="text-danger">
+          Email non valide
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label text-dark">Mot de passe</label>
+        <input type="password" id="password" class="form-control rounded-pill" formControlName="password"
+          [(ngModel)]="user.password" name="password" placeholder="Mot de passe">
+        <div *ngIf="myForm.controls['password'].hasError('required') && myForm.controls['password'].touched"
+          class="text-danger">
+          Mot de passe est obligatoire
+        </div>
+        <div *ngIf="myForm.controls['password'].hasError('minlength') && myForm.controls['password'].touched"
+          class="text-danger">
+          Le mot de passe doit contenir au moins 6 caractères
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label text-dark">Confirmer le mot de passe</label>
+        <input type="password" id="confirmPassword" class="form-control rounded-pill" formControlName="confirmPassword"
+          name="confirmPassword" placeholder="Confirmez le mot de passe" [(ngModel)]="confirmPassword">
+        <div
+          *ngIf="myForm.controls['confirmPassword'].hasError('required') && myForm.controls['confirmPassword'].touched"
+          class="text-danger">
+          Confirmation du mot de passe est obligatoire
+        </div>
+        <div
+          *ngIf="myForm.get('confirmPassword')?.touched && myForm.get('confirmPassword')?.value !== myForm.get('password')?.value"
+          class="text-danger">
+          Les mots de passe ne correspondent pas
+        </div>
+      </div>
+
+
+      <button type="button" class="btn btn-orange w-100 rounded-pill mt-3" [disabled]="myForm.invalid"
+        (click)="onRegister()">
+        S'inscrire
+      </button>
+
+
+      <p class="text-center mt-3">
+        Vous avez déjà un compte ?
+        <a routerLink="/login" class="text-orange fw-bold">Se connecter</a>
+      </p>
+    </form>
+  </div>
+</div>

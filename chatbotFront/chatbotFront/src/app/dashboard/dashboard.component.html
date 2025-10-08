@@ -1,0 +1,130 @@
+<app-menu>
+  <div class="dashboard-container">
+    <h2 class="dashboard-title section-title">Tableau de Bord</h2>
+
+    <div class="stats-grid">
+      <div class="card stat-card conversations">
+        <div class="card-body">
+          <h3 class="card-text">{{ historyCount }}</h3>
+          <p class="card-title">Conversations</p>
+          <i class="fas fa-history" style="color: #ff6b35;"></i>
+        </div>
+      </div>
+      <div class="card stat-card intents">
+        <div class="card-body">
+          <h3 class="card-text">{{ intentCount }}</h3>
+          <p class="card-title">Intents</p>
+          <i class="fas fa-lightbulb" style="color: #ff6b35;"></i>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="charts-grid">
+
+      <div class="chart-card">
+        <h5 class="section-title">Conversations par Date</h5>
+        <canvas baseChart [data]="{
+                  labels: questionsChartLabels,
+                  datasets: [{
+                    data: questionsChartData,
+                    label: 'Conversations',
+                    backgroundColor: '#004b93',
+                    borderColor: '#003a73',
+                    borderWidth: 1,
+                    hoverBackgroundColor: '#ff6b35',
+                    hoverBorderColor: '#ff8559'
+                  }]
+                }" [type]="barChartType" [options]="{
+                  scales: {
+                    y: { beginAtZero: true, ticks: { color: '#2c3e50', font: { size: 12 } } },
+                    x: { ticks: { color: '#2c3e50', font: { size: 10 } } }
+                  },
+                  plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                      backgroundColor: '#003a73',
+                      titleFont: { size: 12 },
+                      bodyFont: { size: 12 }
+                    }
+                  },
+                  animation: {
+                    duration: 800,
+                    easing: 'easeOutCubic'
+                  }
+                }">
+        </canvas>
+      </div>
+    </div>
+
+
+    <div class="row mt-4">
+      <div class="chart-card col-md-6">
+        <h5 class="section-title">Répartition des Éléments</h5>
+        <canvas baseChart [data]="{
+                  labels: pieChartLabels,
+                  datasets: [{
+                    data: pieChartData,
+                    backgroundColor: ['#004b93', '#ff6b35', '#1e5ba8', '#2c3e50'],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                  }]
+                }" [type]="pieChartType" [options]="{
+                  plugins: {
+                    legend: {
+                      position: 'bottom',
+                      labels: {
+                        color: '#2c3e50',
+                        font: { size: 12 },
+                        padding: 15
+                      }
+                    },
+                    tooltip: {
+                      backgroundColor: '#004b93',
+                      titleFont: { size: 12 },
+                      bodyFont: { size: 12 }
+                    }
+                  },
+                  animation: {
+                    duration: 800,
+                    easing: 'easeOutCubic'
+                  }
+                }">
+        </canvas>
+      </div>
+      <div class="chart-card col-md-6">
+        <h5 class="section-title">Réussies vs Erreurs</h5>
+        <canvas baseChart [data]="{
+                  labels: successErrorLabels,
+                  datasets: [{
+                    data: successErrorData,
+                    backgroundColor: ['#ff6b35', '#1e5ba8'],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                  }]
+                }" [type]="successErrorChartType" [options]="{
+                  plugins: {
+                    legend: {
+                      position: 'bottom',
+                      labels: {
+                        color: '#2c3e50',
+                        font: { size: 12 },
+                        padding: 15
+                      }
+                    },
+                    tooltip: {
+                      backgroundColor: '#004b93',
+                      titleFont: { size: 12 },
+                      bodyFont: { size: 12 }
+                    }
+                  },
+                  animation: {
+                    duration: 800,
+                    easing: 'easeOutCubic'
+                  }
+                }">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</app-menu>

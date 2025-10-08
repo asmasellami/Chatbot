@@ -1,0 +1,31 @@
+<app-menu>
+  <div class="modal fade" id="updateFileModal" tabindex="-1" aria-labelledby="updateFileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg" style="border-radius: 15px; overflow: hidden;">
+        <div class="modal-header bg-dark-blue text-white">
+          <h5 class="modal-title" id="updateFileModalLabel">Modifier le fichier</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="mb-3">
+            <label for="fileInput" class="form-label fw-bold">Sélectionner un nouveau fichier</label>
+            <input type="file" class="form-control" id="fileInput" (change)="onFileSelected($event)" accept=".json">
+
+          </div>
+          <div *ngIf="fichierSelectionne" class="alert alert-info d-flex align-items-center">
+            <i class='bx bx-file me-2'></i>
+            <span>Fichier sélectionné : {{ fichierSelectionne.name }}</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-primary" style="background-color: #004b93;" (click)="updateFile()"
+            [disabled]="!fichierSelectionne">
+            <i class="fas fa-save me-1"></i> Mettre à jour
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</app-menu>
