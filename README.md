@@ -14,7 +14,7 @@ Le projet inclut :
 - **Frontend** : Angular  
 - **Backend** : Java / Spring Boot  
 - **NLP** : Python / Flask  
-- **Base de données** : MySQL / MongoDB  
+- **Base de données** : MySQL 
 - **API REST**  
 
 ---
