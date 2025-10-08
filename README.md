@@ -34,16 +34,19 @@ Chatbot/
 ```bash
 git clone https://github.com/asmasellami/Chatbot.git
 cd Chatbot
+---
 ### 2️⃣ Frontend (Angular)
 ```bash
 cd chatbotFront
 npm install
 ng serve
 Accéder à : http://localhost:4200
+---
 ###3️⃣ Backend (Spring Boot)
 ```bash
 cd ../chatbotBack
 mvn spring-boot:run
+---
 ###4️⃣ Service NLP (Flask)
 ```bash
 cd ../chatbotNLP
